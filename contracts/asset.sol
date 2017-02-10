@@ -24,7 +24,7 @@ contract Asset{
     /**
     * Description of the item.
     */
-    //TODO: Should we limit this to a certain amount of characters?, maybe a bytes object. (and certain kind of carachters?)
+    //TODO: Should we limit this to a certain amount of characters?, maybe a bytes object. (and certain kind of characters?)
     string _description; 
 
     /**
