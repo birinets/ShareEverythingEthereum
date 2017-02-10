@@ -22,6 +22,12 @@ contract Asset{
     address _owner;
 
     /**
+    *  address of the latest renter.
+    *    0x0 if it hasn't been rented. 
+    */
+    address _currentRenter;
+
+    /**
     * Description of the item.
     */
     //TODO: Should we limit this to a certain amount of characters?, maybe a bytes object. (and certain kind of characters?)
@@ -60,8 +66,9 @@ contract Asset{
     * remove the contract. Can only be executed by the owner.
     * this will set all values to 0 and make it impossible to interact with.
     * money will be send to the owner.
+    * can only be called if the asset is notRented.
     */
-    function remove() onlyOwner {
+    function remove() onlyOwner notRented {
         selfdestruct(_owner);
     }
 
@@ -99,6 +106,12 @@ contract Asset{
 
     modifier onlyOwner {
         if (msg.sender != _owner)
+            throw;
+        _;
+    }
+
+    modifier notRented {
+        if (_currentRenter != 0x0)
             throw;
         _;
     }
