@@ -1,10 +1,12 @@
 pragma solidity ^0.4.9;
 
+import "./Owned.sol";
+
 /**
 * An asset is a blockchain representation of a physical item a person can let(rent out).
 * This Asset will be created by an OwnerContract
 */
-contract Asset{
+contract Asset is Owned{
 
     /**
     * Available (time units) for which an asset can be rented.
@@ -14,12 +16,6 @@ contract Asset{
         DAY,
         MONTH
     }
-
-    /**
-    * address of the owner contract.
-    *   an owner contract can have multiple assets.
-    */
-    address _owner;
 
     /**
     * Description of the item.
@@ -49,7 +45,6 @@ contract Asset{
     */
     //TODO: can we limit the constructor to be only called by a certain contract type?
     function Asset(uint id, string description, uint pricePerTimeUnit, TimeUnit timeUnit){ 
-        _owner = msg.sender;
         _id = id;
         _description = description;
         _pricePerTimeUnit = pricePerTimeUnit;
@@ -96,11 +91,4 @@ contract Asset{
     function setTimeUnit(TimeUnit timeUnit){
         _timeUnit = timeUnit;
     }
-
-    modifier onlyOwner {
-        if (msg.sender != _owner)
-            throw;
-        _;
-    }
-
 }
