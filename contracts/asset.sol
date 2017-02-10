@@ -17,14 +17,14 @@ contract Asset{
 
     /**
     * address of the owner contract.
-    *   an owner contract can have multiple items.
+    *   an owner contract can have multiple assets.
     */
     address _owner;
 
     /**
     * Description of the item.
     */
-    //TODO: Should we limit this to a certain amount of characters?, maybe a bytes object.
+    //TODO: Should we limit this to a certain amount of characters?, maybe a bytes object. (and certain kind of carachters?)
     string _description; 
 
     /**
