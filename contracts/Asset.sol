@@ -113,6 +113,7 @@ contract Asset is Owned{
         Agreement agreement = Agreement(_currentAgreement);
         agreement.claim();
         _currentAgreement = 0x0;
+        //Agreement still exists on chain, but without references.
     }
 
     modifier notRented {

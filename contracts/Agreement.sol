@@ -35,7 +35,7 @@ contract Agreement {
         _endTime = _startTime + duration;        
     }
 
-    function changeState(State to){
+    function changeState(State to) private {
         // all allowed state changes.
         // REQUEST -> AGREED
         // REQUEST -> DENIED
@@ -97,9 +97,5 @@ contract Agreement {
         }
     }
 
-    /**
-    * fallback function to allow for money to be place on the contract.
-    */
-    function() payable{}
 
 }
