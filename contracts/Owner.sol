@@ -3,10 +3,9 @@ pragma solidity ^0.4.9;
 import "./Asset.sol";
 import "./Owned.sol";
 
-    /**
-    * Owner-contract is responsible for the links to the addressess of the assets in the chain.
-    */
-
+/**
+* Owner-contract is responsible for the links to the addressess of the assets in the chain.
+*/
 contract Owner is Owned{
 
     /**
