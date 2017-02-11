@@ -1,0 +1,1 @@
+[{"constant":false,"inputs":[{"name":"id","type":"uint256"},{"name":"description","type":"string"},{"name":"pricePerTimeUnit","type":"uint256"},{"name":"timeUnit","type":"uint8"}],"name":"addItem","outputs":[],"payable":false,"type":"function"},{"inputs":[],"payable":false,"type":"constructor"}]
